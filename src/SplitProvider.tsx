@@ -1,4 +1,3 @@
-import { SplitFactory } from '@splitsoftware/splitio';
 import React, {
   createContext,
   useCallback,
@@ -93,7 +92,8 @@ const SplitProvider = ({
      * Instantiating a new factory
      * @link https://help.split.io/hc/en-us/articles/360020448791-JavaScript-SDK
      */
-    const nextFactory: SplitIO.ISDK = SplitFactory(sdkConfig);
+    // @ts-ignore the window.splitio below
+    const nextFactory = window.splitio(sdkConfig);
     const nextClient = nextFactory.client();
 
     setProvider({
